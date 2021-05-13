@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+
+    <title>Employee</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Find Employee</h1>
+        <!-- <div class="form-floating mb-3 input-group">
+            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+            <label for="floatingInput">Email address</label>
+            <div class="input-group-append">
+                <button class="btn-lg btn-primary" id='search'>Search</button>
+            </div>
+          </div> -->
+
+        <div class="input-group row">
+            <div class="col-xs-2">
+                <input type="text" id="empId" class="form-control " placeholder="Employee Id">
+            </div>
+            <div class="input-group-append">
+                <button class="btn btn-primary" type="button" onClick="handleSearch()">Search</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container empData" id="empData">
+
+    </div>
+
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8"
+        crossorigin="anonymous"></script>
+    <script src='index.js'></script>
+
+</body>
+
+</html>
