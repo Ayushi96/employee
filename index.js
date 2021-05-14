@@ -1,6 +1,6 @@
 console.log("included js file ")
 
-const url = 'emp_data.json'
+const url = 'https://reqres.in/api/users'
 
 async function loadData(url) {
     const response = await fetch(url)
@@ -14,20 +14,25 @@ async function populateData(id) {
     // let id = iid.toString()
     console.log("id string ", id)
     data = await loadData(url)
+    let allEmp = data["data"];
     // stringData = JSON.stringify(data)
     // console.log(stringData);
 
     // console.log("data inside populate Data function ", data);
     let empData = document.getElementById("empData");
+    let emoployee = allEmp.find((emp) => {
+        if(emp.id == id){
+            return emp;
+        }
 
-    let firstName = data[id].firstName;
-    let lastName = data[id].lastName;
-    let dob = data[id].dob;
-    let hireDate = data[id].hireDate;
-    let department = data[id].department;
-    let designation = data[id].designation;
-    let salary = data[id].salary;
-    let manager = data[id].manager;
+    });
+    console.log("matching employee ", emoployee);
+
+    let firstName = emoployee["first_name"];
+    let lastName = emoployee["last_name"];
+    let email = emoployee["email"];
+    let avatar = emoployee["avatar"];
+
     empData.innerHTML = `
     <div class="form-group flex-v-center my-2">
         <div class="row">
@@ -35,40 +40,15 @@ async function populateData(id) {
             <input type="text" class="form-control col" id="firstName" value=${firstName}>
             <label for="lastName" class="form-label col">Last Name :</label>
             <input type="text" class="form-control col" id="firstName" value=${lastName}>
-        </div>
-    </div>
-    <div class="form-group flex-v-center my-2">
-        <div class="row">
-            <label for="DOB"  class="form-label col">DOB :</label>
-            <input type="text" class="form-control col" id="DOB" value=${dob}>
-            <label for="hireDate" class="form-label col">Hire Date :</label>
-            <input type="text" class="form-control col" id="hireDate" value=${hireDate}>
-            
-        </div>
-    </div>
-    <div class="form-group flex-v-center my-2">
-        <div class="row">
-            <label for="department" class="form-label col">Department :</label>
-            <input type="text" class="form-control col" id="department" value=${department}>
-            <label for="designation" class="form-label col">Designation :</label>
-            <input type="text" class="form-control col" id="designation" value='${designation}'>
-            
-        </div>
-    </div>
-
-    <div class="form-group flex-v-center my-2">
-        <div class="row">
-            <label for="salary" class="form-label col">Salary :</label>
-            <input type="text" class="form-control col" id="salary" value=${salary}>
-            <label for="manager" class="form-label col">Manager :</label>
-            <input type="text" class="form-control col" id="manager" value=${manager}>
-            
+            <label for="email" class="form-label col">Email :</label>
+            <input type="email" class="form-control col" id="email" value=${email}>
         </div>
     </div>
     
-  
+    <img src=${avatar} alt='Employee Image' class="col" width="150">
+    
   `
-    console.log("designation ", designation)
+    // console.log("data ", data["data"]);
 }
 
 function handleSearch() {
