@@ -14,29 +14,27 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="container px-4">
         <h1>Find Employee</h1>
-        <!-- <div class="form-floating mb-3 input-group">
-            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-            <label for="floatingInput">Email address</label>
-            <div class="input-group-append">
-                <button class="btn-lg btn-primary" id='search'>Search</button>
-            </div>
-          </div> -->
 
-        <div class="input-group row">
-            <div class="col-xs-2">
-                <input type="text" id="empId" class="form-control " placeholder="Employee Id">
+
+        <div class="form-group row">
+            <label for="impId" class="col-2">Employee Id : </label>
+            <div class="col-3">
+                <input type="text" id="empId" class="form-control" placeholder="1">
             </div>
-            <div class="input-group-append">
+            <div class="col-2">
                 <button class="btn btn-primary" type="button" onClick="handleSearch()">Search</button>
             </div>
         </div>
+
+        <br>
+
+        <div class="empData" id="empData">
+        </div>
+
     </div>
 
-    <div class="container empData" id="empData">
-
-    </div>
 
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
@@ -47,4 +45,4 @@
 
 </body>
 
-</html>
+</html>x

@@ -2,15 +2,15 @@ console.log("included js file ")
 
 const url = 'emp_data.json'
 
-async function loadData(url){
+async function loadData(url) {
     const response = await fetch(url)
     let data = await response.json();
     // console.log("data within loadData function ", data );
-   return data;
+    return data;
 }
 
 
-async function populateData(id){
+async function populateData(id) {
     // let id = iid.toString()
     console.log("id string ", id)
     data = await loadData(url)
@@ -28,37 +28,50 @@ async function populateData(id){
     let designation = data[id].designation;
     let salary = data[id].salary;
     let manager = data[id].manager;
-    empData.innerHTML = `<div class="mb-3">
-    <label for="firstName" class="form-label">First Name :</label>
-    <input type="text" class="form-control" id="firstName" value=${firstName}>
-  </div>
-    <label for="lastName" class="form-label">Last Name :</label>
-    <input type="text" class="form-control" id="firstName" value=${lastName}>
-  </div>
-    <label for="DOB" class="form-label">DOB :</label>
-    <input type="text" class="form-control" id="DOB" value=${dob}>
-  </div>
-    <label for="hireDate" class="form-label">Hire Date :</label>
-    <input type="text" class="form-control" id="hireDate" value=${hireDate}>
-  </div>
-    <label for="department" class="form-label">Department :</label>
-    <input type="text" class="form-control" id="department" value=${department}>
-  </div>
-    <label for="designation" class="form-label">Designation :</label>
-    <input type="text" class="form-control" id="designation" value=${designation}>
-  </div>
-    <label for="salary" class="form-label">Salary :</label>
-    <input type="text" class="form-control" id="salary" value=${salary}>
-  </div>
-    <label for="manager" class="form-label">Manager :</label>
-    <input type="text" class="form-control" id="manager" value=${manager}>
-  </div>
+    empData.innerHTML = `
+    <div class="form-group flex-v-center my-2">
+        <div class="row">
+            <label for="firstName" class="form-label col">First Name :</label>
+            <input type="text" class="form-control col" id="firstName" value=${firstName}>
+            <label for="lastName" class="form-label col">Last Name :</label>
+            <input type="text" class="form-control col" id="firstName" value=${lastName}>
+        </div>
+    </div>
+    <div class="form-group flex-v-center my-2">
+        <div class="row">
+            <label for="DOB"  class="form-label col">DOB :</label>
+            <input type="text" class="form-control col" id="DOB" value=${dob}>
+            <label for="hireDate" class="form-label col">Hire Date :</label>
+            <input type="text" class="form-control col" id="hireDate" value=${hireDate}>
+            
+        </div>
+    </div>
+    <div class="form-group flex-v-center my-2">
+        <div class="row">
+            <label for="department" class="form-label col">Department :</label>
+            <input type="text" class="form-control col" id="department" value=${department}>
+            <label for="designation" class="form-label col">Designation :</label>
+            <input type="text" class="form-control col" id="designation" value='${designation}'>
+            
+        </div>
+    </div>
+
+    <div class="form-group flex-v-center my-2">
+        <div class="row">
+            <label for="salary" class="form-label col">Salary :</label>
+            <input type="text" class="form-control col" id="salary" value=${salary}>
+            <label for="manager" class="form-label col">Manager :</label>
+            <input type="text" class="form-control col" id="manager" value=${manager}>
+            
+        </div>
+    </div>
+    
   
   `
-    console.log("first name ", firstName)
+    console.log("designation ", designation)
 }
 
-function handleSearch(){
+function handleSearch() {
     let empData = document.getElementById("empData");
     empData.innerHTML = ''
     const empId = document.getElementById('empId').value;
