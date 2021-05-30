@@ -1,4 +1,4 @@
-console.log("included js file ")
+console.log("included js file of employee ")
 
 const url = 'emp_data.json'
 
@@ -28,53 +28,34 @@ async function populateData(id) {
     let designation = data[id].designation;
     let salary = data[id].salary;
     let manager = data[id].manager;
-    empData.innerHTML = `
-    <div class="form-group flex-v-center my-2">
-        <div class="row">
-            <label for="firstName" class="form-label col">First Name :</label>
-            <input type="text" class="form-control col" id="firstName" value=${firstName}>
-            <label for="lastName" class="form-label col">Last Name :</label>
-            <input type="text" class="form-control col" id="firstName" value=${lastName}>
-        </div>
-    </div>
-    <div class="form-group flex-v-center my-2">
-        <div class="row">
-            <label for="DOB"  class="form-label col">DOB :</label>
-            <input type="text" class="form-control col" id="DOB" value=${dob}>
-            <label for="hireDate" class="form-label col">Hire Date :</label>
-            <input type="text" class="form-control col" id="hireDate" value=${hireDate}>
-            
-        </div>
-    </div>
-    <div class="form-group flex-v-center my-2">
-        <div class="row">
-            <label for="department" class="form-label col">Department :</label>
-            <input type="text" class="form-control col" id="department" value=${department}>
-            <label for="designation" class="form-label col">Designation :</label>
-            <input type="text" class="form-control col" id="designation" value='${designation}'>
-            
-        </div>
-    </div>
+    document.getElementById("firstName").value = firstName;
+    document.getElementById("lastName").value = lastName;
+    document.getElementById("DOB").value = dob;
+    document.getElementById("hireDate").value = hireDate;
+    document.getElementById("department").value = department;
+    document.getElementById("salary").value = salary;
+    document.getElementById("manager").value = manager;
+    document.getElementById("designation").value = designation;
 
-    <div class="form-group flex-v-center my-2">
-        <div class="row">
-            <label for="salary" class="form-label col">Salary :</label>
-            <input type="text" class="form-control col" id="salary" value=${salary}>
-            <label for="manager" class="form-label col">Manager :</label>
-            <input type="text" class="form-control col" id="manager" value=${manager}>
-            
-        </div>
-    </div>
-    
-  
-  `
-    console.log("designation ", designation)
 }
 
 function handleSearch() {
     let empData = document.getElementById("empData");
-    empData.innerHTML = ''
+    //empData.innerHTML = ''
     const empId = document.getElementById('empId').value;
+    console.log("empID = ", typeof(empId));
+    if(empId < 1 || empId > 3 || empId == ''){
+
+        document.getElementById('invalidInput').innerHTML = `
+        <div class="alert alert-danger" role="alert">
+        Invalid Input! Try again.
+        </div>
+        `
+        return;
+    }
+    else{
+        document.getElementById('invalidInput').innerHTML = ``
+    }
     console.log("emp id ", empId);
     populateData(empId)
 
