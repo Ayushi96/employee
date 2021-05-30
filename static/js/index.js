@@ -1,33 +1,30 @@
 console.log("included js file of employee ")
 
 const url = 'emp_data.json'
+const flaskapi_url = 'http://127.0.0.1:5000/fetchEmployee/'
 
 async function loadData(url) {
+    console.log(url)
     const response = await fetch(url)
+    console.log("response is ", response)
     let data = await response.json();
     // console.log("data within loadData function ", data );
     return data;
 }
 
-
-async function populateData(id) {
-    // let id = iid.toString()
-    console.log("id string ", id)
-    data = await loadData(url)
-    // stringData = JSON.stringify(data)
-    // console.log(stringData);
-
-    // console.log("data inside populate Data function ", data);
-    let empData = document.getElementById("empData");
-
-    let firstName = data[id].firstName;
-    let lastName = data[id].lastName;
-    let dob = data[id].dob;
-    let hireDate = data[id].hireDate;
-    let department = data[id].department;
-    let designation = data[id].designation;
-    let salary = data[id].salary;
-    let manager = data[id].manager;
+async function fetchEmployee(id){
+    console.log("called fetchEmployee()");
+    const url_emp = flaskapi_url + id
+    data = await loadData(url_emp)
+    console.log("data from the backend is => ", data);
+    let firstName = data.firstName;
+    let lastName = data.lastName;
+    let dob = data.dob;
+    let hireDate = data.hireDate;
+    let department = data.department;
+    let designation = data.designation;
+    let salary = data.salary;
+    let manager = data.manager;
     document.getElementById("firstName").value = firstName;
     document.getElementById("lastName").value = lastName;
     document.getElementById("DOB").value = dob;
@@ -39,9 +36,8 @@ async function populateData(id) {
 
 }
 
-function handleSearch() {
-    let empData = document.getElementById("empData");
-    //empData.innerHTML = ''
+function handleSearch(){
+    console.log("calling the new handle search")
     const empId = document.getElementById('empId').value;
     console.log("empID = ", typeof(empId));
     if(empId < 1 || empId > 3 || empId == ''){
@@ -57,9 +53,11 @@ function handleSearch() {
         document.getElementById('invalidInput').innerHTML = ``
     }
     console.log("emp id ", empId);
-    populateData(empId)
+    fetchEmployee(empId);
 
 }
+
+
 
 
 
