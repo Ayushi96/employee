@@ -42,9 +42,15 @@ def hello_world():
 
 @app.route('/fetchEmployee/<string:empId>')
 def fetchEmp(empId):
-    eid = int(empId)
+    try:
+        eid = int(empId)
+    except ValueError:
+        print("Input was not a valid integer")
 
     employeeDetails = Details.query.get(eid)
+    # if there is no record for eid in the DB
+    if employeeDetails==None:
+        return json.dumps({})
 
     row = { "firstName": str(employeeDetails.f_name),
     "lastName": str(employeeDetails.l_name),
