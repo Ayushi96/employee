@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+        
+
+    <title>Employee Finder</title>
+</head>
+
+<body>
+    <h1>Edit page loaded</h1>
+    <div class="container px-4">
+        <h1>Edit Employee</h1>
+
+
+        <div class="form-group row">
+            <label for="impId" class="col-2">Employee Id : </label>
+            <div class="col-3">
+                <input type="text" id="empId" class="form-control" placeholder="">
+            </div>
+            <div class="col-2">
+                <button class="btn btn-primary" type="button" onClick="handleSearch()">Search</button>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="empData" id="empData">
+            <!-- <div id='invalidInput'></div> -->
+            <div class="form-group flex-v-center my-2">
+                <div class="row">
+                    <label for="firstName" class="form-label col">First Name :</label>
+                    <input type="text" class="form-control col" id="firstName" value="">
+                    <label for="lastName" class="form-label col">Last Name :</label>
+                    <input type="text" class="form-control col" id="lastName" value=''>
+                </div>
+            </div>
+            <div class="form-group flex-v-center my-2">
+                <div class="row">
+                    <label for="DOB" class="form-label col">DOB :</label>
+                    <input type="text" class="form-control col" id="DOB" value=''>
+                    <label for="hireDate" class="form-label col">Hire Date :</label>
+                    <input type="text" class="form-control col" id="hireDate" value=''>
+
+                </div>
+            </div>
+            <div class="form-group flex-v-center my-2">
+                <div class="row">
+                    <label for="department" class="form-label col">Department :</label>
+                    <input type="text" class="form-control col" id="department" value=''>
+                    <label for="designation" class="form-label col">Designation :</label>
+                    <input type="text" class="form-control col" id="designation" value=''>           
+
+
+                </div>
+            </div>
+
+            <div class="form-group flex-v-center my-2">
+                <div class="row">
+                    <label for="salary" class="form-label col">Salary :</label>
+                    <input type="text" class="form-control col" id="salary" value=''>
+                    <label for="manager" class="form-label col">Manager :</label>
+                    <input type="text" class="form-control col" id="manager" value=''>
+
+                </div>
+            </div>
+            Gender: 
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="gender" id="Female" value="Female">
+                <label class="form-check-label" for="female">Female</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="gender" id="Male" value="Male">
+                <label class="form-check-label" for="inlineRadio2">Male</label>
+              </div>
+        </div>
+
+    </div>
+    <div class="container">
+        <a href="/edit"></a><button class="btn btn-primary" >
+            Edit Info
+        </button>
+    </div>
+
+
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8"
+        crossorigin="anonymous"></script>
+    <script src='{{url_for("static", filename="js/index.js")}}'></script>
+
+</body>
+
+</html>
