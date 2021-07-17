@@ -1,7 +1,12 @@
 const fetchEmployee_url = 'http://127.0.0.1:5000/fetchEmployee/'
 const editEmp_url = 'http://127.0.0.1:5000/edit/'
-
-async function loadData(url, reqType, reqBody) {
+/*
+* Helper function to make a GET/POST call to the backend
+* reqType can be GET/POST
+* reqBody will contain the new data to be updated 
+* when a POST request is made
+*/
+async function loadData(url, reqType, reqBody='') {
     let response;
     if (reqType == 'post') {
         response = await fetch(url, { method: reqType, body: JSON.stringify(reqBody) })
@@ -59,7 +64,10 @@ function handleSearch() {
     fetchEmployee(empId);
 
 }
-
+/*
+* Edit employee information for the enterred employee ID 
+* by calling the edit API
+*/
 async function editEmployee() {
     const empId = document.getElementById('empId').value;
     if (isNaN(empId) || empId < 1 || empId == '') {
@@ -80,9 +88,8 @@ async function editEmployee() {
             manager: document.getElementById("manager").value,
             designation: document.getElementById("designation").value,
         }
-        console.log(newData)
+       
         response = await loadData(editUrl, "post", newData)
-        console.log("response from edit api was => ", response)
         if (response.msg) {
             alert("Updated data for emp id: " + empId);
         }
