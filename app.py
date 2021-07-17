@@ -88,8 +88,6 @@ def edit(eid):
             print("caught invalid id in backend")
             return json.dumps({})
         newData = json.loads(request.data)
-        print(newData)
-        print(newData["firstName"])
         emp.f_name = newData["firstName"]
         emp.l_name = newData["lastName"]
         emp.gender = newData["gender"]
@@ -97,8 +95,6 @@ def edit(eid):
         emp.designation = newData["designation"]
         emp.salary = newData["salary"]
         emp.manager = newData["manager"]
-        print("new emp data => ")
-        print(emp)
         db.session.commit()
     return {"msg": "updated Employee information!"}
 
