@@ -98,7 +98,8 @@ def edit(eid):
         emp.salary = newData["salary"]
         emp.manager = newData["manager"]
         db.session.commit()
-    return {"msg": "updated Employee information!"}
+        response = json.dumps({"msg": "Updated Employee information!"})
+    return response
 
 
 if __name__ == "__main__":
