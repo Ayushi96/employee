@@ -1,0 +1,80 @@
+<div class="app-container">
+  <h1>Find/Edit Employee</h1>
+  <div class="find-edit-employee-container">
+    <span class="search-label"><label for="empId">Employee Id </label></span>
+    <span>
+      <input id="empId" class="empid-text-box" type="text" [formControl]="empId">
+    </span>
+    <span><button class="submit-buttons" (click)="handleSearch()">Search</button></span>
+    <span><button type="submit" class="submit-buttons">Edit</button></span>
+  </div>
+
+  <form [formGroup]="employeeForm" class="employee-form">
+    <div class="employee-form-row">
+      <div class="employee-field">
+        <label class="field-label" for="firstName">First Name :</label>
+        <input class="field-text-box" name="firstName" type="text" id="firstName" value="" formControlName="firstName">
+      </div>
+      <div class="employee-field">
+        <label for="lastName" class="field-label">Last Name :</label>
+        <input name="lastName" type="text" class="field-text-box" id="lastName" value="" formControlName="lastName">
+      </div>
+    </div>
+
+    <div class="employee-form-row">
+      <div class="employee-field">
+        <label class="field-label" for="dob">DOB :</label>
+        <input class="field-text-box" name="dob" type="text" id="dob" value="" formControlName="dob">
+      </div>
+      <div class="employee-field">
+        <label for="hireDate" class="field-label">Hire Date :</label>
+        <input name="hireDate" type="text" class="field-text-box" id="hireDate" value="" formControlName="hireDate">
+      </div>
+    </div>
+    <div class="employee-form-row">
+
+      <div class="employee-field">
+        <label for="department" class="field-label">Department :</label>
+        <select id="department" class="field-select-box" formControlName="department">
+          <option value="Engineering">Engineering</option>
+          <option value="R&D">R&D</option>
+          <option class="dropdown-item" value="Marketing">Marketing</option>
+          <option class="dropdown-item" value="Human Resources">Human Resources</option>
+          <option class="dropdown-item" value="Accounts and Finance">Accounts and Finance</option>
+        </select>
+      </div>
+      <div class="employee-field">
+        <label class="field-label" for="designation">Designation :</label>
+        <input class="field-text-box" name="designation" type="text" id="designation" value="" formControlName="designation">
+      </div>
+    </div>
+
+    <div class="employee-form-row">
+      <div class="employee-field">
+        <label class="field-label" for="salary">Salary :</label>
+        <input class="field-text-box" name="salary" type="text" id="salary" value="" formControlName="salary">
+      </div>
+      <div class="employee-field">
+        <label for="manager" class="field-label">Manager :</label>
+        <input name="manager" type="text" class="field-text-box" id="manager" value="" formControlName="manager">
+      </div>
+    </div>
+
+    <div class="employee-form-row">
+      <div class="employee-field">
+        <label for="gender" class="field-label">Gender :</label>
+
+          <input name="gender" class="form-check-input col" type="radio" name="gender" id="Female" value="Female" formControlName="gender">
+          <label class="form-check-label col" for="Female">Female</label>
+ 
+          <input name="gender" class="form-check-input  col" type="radio" name="gender" id="Male" value="Male" formControlName="gender">
+          <label class="form-check-label  col" for="Male">Male</label>
+    
+      </div>
+
+    </div>
+
+  </form>
+
+
+</div>

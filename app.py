@@ -1,10 +1,12 @@
 from flask import Flask, render_template, sessions, request
 from flask_sqlalchemy import SQLAlchemy
 import json
+from flask_cors import CORS
 
 from werkzeug.utils import redirect
 
 app = Flask(__name__)
+CORS(app)
 
 with open("config.json", "r") as c:
     params = json.load(c)["params"]
